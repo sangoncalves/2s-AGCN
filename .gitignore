@@ -108,3 +108,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+data/ntu/xsub/train_data_bone.npy
+data/ntu/xsub/train_data_joint.npy
+data/ntu/xview/train_data_joint.npy
+data/ntu/xview/train_data_bone.npy

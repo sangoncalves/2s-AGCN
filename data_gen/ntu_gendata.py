@@ -4,7 +4,9 @@ from tqdm import tqdm
 import sys
 
 sys.path.extend(['../'])
-from data_gen.preprocess import pre_normalization
+
+from preprocess import pre_normalization
+# from data_gen.preprocess import pre_normalization
 
 training_subjects = [
     1, 2, 4, 5, 8, 9, 13, 14, 15, 16, 17, 18, 19, 25, 27, 28, 31, 34, 35, 38
@@ -143,10 +145,10 @@ def gendata(data_path, out_path, ignored_sample_path=None, benchmark='xview', pa
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='NTU-RGB-D Data Converter.')
-    parser.add_argument('--data_path', default='../data/nturgbd_raw/nturgb+d_skeletons/')
+    parser.add_argument('--data_path', default='data/nturgbd_raw/nturgb+d_skeletons/')
     parser.add_argument('--ignored_sample_path',
-                        default='../data/nturgbd_raw/samples_with_missing_skeletons.txt')
-    parser.add_argument('--out_folder', default='../data/ntu/')
+                        default='data/nturgbd_raw/samples_with_missing_skeletons.txt')
+    parser.add_argument('--out_folder', default='data/ntu/')
 
     benchmark = ['xsub', 'xview']
     part = ['train', 'val']
