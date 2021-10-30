@@ -60,13 +60,13 @@ def get_parser():
         description='Spatial Temporal Graph Convolution Network')
     parser.add_argument(
         '--work-dir',
-        default='./work_dir/temp',
+        default='work_dir/temp',
         help='the work folder for storing results')
 
     parser.add_argument('-model_saved_name', default='')
     parser.add_argument(
         '--config',
-        default='./config/nturgbd-cross-view/test_bone.yaml',
+        default='config/nturgbd-cross-view/test_bone.yaml',
         help='path to the configuration file')
 
     # processor
@@ -234,7 +234,7 @@ class Processor():
             num_workers=self.arg.num_worker,
             drop_last=False,
             worker_init_fn=init_seed)
-
+#TODO
     def load_model(self):
         output_device = self.arg.device[0] if type(self.arg.device) is list else self.arg.device
         self.output_device = output_device

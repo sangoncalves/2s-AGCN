@@ -1,10 +1,10 @@
-work_dir: ./work_dir/ntu/xview/agcn_joint
-model_saved_name: ./runs/ntu_cv_agcn_joint
+work_dir: work_dir/ntu/xview/agcn_joint
+model_saved_name: runs/ntu_cv_agcn_joint
 # feeder
 feeder: feeders.feeder.Feeder
 train_feeder_args:
-  data_path: ./data/ntu/xview/train_data_joint.npy
-  label_path: ./data/ntu/xview/train_label.pkl
+  data_path: data/ntu/xview/train_data_joint.npy
+  label_path: data/ntu/xview/train_label.pkl
   debug: False
   random_choose: False
   random_shift: False
@@ -13,13 +13,14 @@ train_feeder_args:
   normalization: False
 
 test_feeder_args:
-  data_path: ./data/ntu/xview/val_data_joint.npy
-  label_path: ./data/ntu/xview/val_label.pkl
+  data_path: data/ntu/xview/val_data_joint.npy
+  label_path: data/ntu/xview/val_label.pkl
 
 # model
 model: model.agcn.Model
 model_args:
-  num_class: 60
+  # num_class: 60
+  num_class: 25
   num_point: 25
   num_person: 2
   graph: graph.ntu_rgb_d.Graph
@@ -32,8 +33,13 @@ base_lr: 0.1
 step: [30, 40]
 
 # training
-device: [0, 1 ,2, 3]
-batch_size: 64
-test_batch_size: 64
-num_epoch: 50
+# device: [0, 1 ,2, 3]
+# batch_size: 64
+# test_batch_size: 64
+# num_epoch: 50
+
+device: [0]
+batch_size: 8
+test_batch_size: 8
+num_epoch: 10
 nesterov: True
